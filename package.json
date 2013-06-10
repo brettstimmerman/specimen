@@ -1,6 +1,6 @@
 {
   "name": "specimen",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CSS selector specificity calculator",
   "main": "index.js",
   "scripts": {
