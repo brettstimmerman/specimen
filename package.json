@@ -1,0 +1,24 @@
+{
+  "name": "specimen",
+  "version": "0.0.1",
+  "description": "CSS selector specificity calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brettstimmerman/specimen.git"
+  },
+  "homepage": "https://github.com/brettstimmerman/specimen",
+  "keywords": [
+    "css",
+    "specificity",
+    "selectors"
+  ],
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "author": "Brett Stimmerman <brettstimmerman@gmail.com>",
+  "license": "MIT"
+}
