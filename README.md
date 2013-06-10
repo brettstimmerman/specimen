@@ -40,10 +40,10 @@ of inline styles or account for the use of `!important`.
 
 # credits
 
-Specimen is a based heavily on
+Specimen is based heavily on
 [keeganstreet/specificity](https://github.com/keeganstreet/specificity).
 
-I needed a small specificity module for another project. Keegan Street's
+I needed a small specificity module for another project and Keegan Street's
 `specificity` fit the bill perfectly. But I also needed a small project to help
 curb my fear of programming. I decided I didn't need the additional information
 that `specificity` provides. I settled on a simpler API and `specimen` was born.
