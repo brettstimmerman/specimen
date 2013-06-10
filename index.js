@@ -2,7 +2,7 @@
 var ATTRIBUTE = /(\[[^\]]+\])/g;
 
 // Matches and captures ID selectors. E.g., `#foo`
-var ID = /(#[^\s\.:]+)/g;
+var ID = /(#[^\s\.\[\]:]+)/g;
 
 // Matches and captures class selectors. E.g., `.foo`
 var CLASS = /(\.[^\s\.:]+)/g;

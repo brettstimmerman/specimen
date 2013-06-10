@@ -26,7 +26,10 @@ var SELECTORS = {
   '#warning p.message': [0,1,1,1],
   '#warning p': [0,1,0,1],
   'p.message': [0,0,1,1],
-  'p': [0,0,0,1]
+  'p': [0,0,0,1],
+
+  // Bugs discovered since day one.
+  '#p[foo=bar]': [0,1,1,0]
 };
 
 describe('Selector Tests', function () {
