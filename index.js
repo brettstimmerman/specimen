@@ -39,24 +39,10 @@ var CRUFT = /[\*\s\+>~]+/g;
 exports = module.exports = specimen;
 
 /**
- * Compute the specificity of one or more CSS selectors.
- * See: http://www.w3.org/TR/css3-selectors/#specificity
- *
- * Specificity is represented as a four element array. Each element in the array
- * corresponds to a selector category. E.g., `[i, a, b, c]`
- *
- * The categories are, in order of most to least specific:
- *
- * - **i:** inline styles
- * - **a:** IDs
- * - **b:** classes, attributes & psuedo-classes
- * - **c:** elements & pseudo-elements
- *
- * If multiple selectors are supplied, an array of individual specificities is
- * returned. E.g., `[ [0,0,0,1], [0,0,1,3] ]`
+ * Calulate the specificity of one or more CSS selectors.
  *
  * @param {String|Array} selectors
- * @returns {Array} specificity
+ * @returns {Array|undefined} specificity
  */
 function specimen(selectors) {
   var isDefined;
@@ -86,10 +72,10 @@ function specimen(selectors) {
 
 
 /**
- * Compute the specificity of a single CSS selector.
+ * Calulate the specificity of a single CSS selector.
  *
  * @param {String} selector CSS selector
- * @returns {Array} specificity
+ * @returns {Array|undefined} specificity
  */
 function specificity(selector) {
 

@@ -1,9 +1,13 @@
 # specimen
 
-CSS selector [specificity](http://www.w3.org/TR/css3-selectors/#specificity)
+A CSS [selector specificity](http://www.w3.org/TR/css3-selectors/#specificity)
 calculator.
 
 # usage
+
+```js
+npm install specimen
+```
 
 ```js
 var specimen = require('specimen');
@@ -12,31 +16,64 @@ specimen('#home #warning p.message');
 //=> [0, 2, 1, 1]
 ```
 
+```js
+specimen('#home #warning p.message, .footer a[rel=me]:hover');
+//=> [ [0,2,1,1], [0,0,3,1] ]
+
+specimen([
+  '#home #warning p.message',
+  '.footer a[rel=me]:hover'
+]);
+//=> [ [0,2,1,1], [0,0,3,1] ]
+```
+
 # api
 
 ## specimen(selectors)
 
-Compute the specificity of one or more CSS selectors.
+Calculates the specificity of one or more CSS selectors. The `selectors`
+argument is a string containing one or more selectors, or an array of selector
+strings.
 
-* `selectors` {String|Array} CSS selectors
+Returns an array representing the specificity, or `undefined` if a non-string
+was given.
 
-Specimen represents specificity as a four element array. Each element in the
-array corresponds to a selector category: `[i, a, b, c]`
+For multiple selectors, whether passed as string or array, an array of
+specificities is returned. Returns `undefined` if all values in the array would
+have been `undefined`.
 
-The categories are, in order of most to least specific:
+# specimen's specificity
+
+Specificity is represented as a four element array where each element
+corresponds to a selector category.
+
+The selector categories are, in order of most to least specific:
 
 - **i:** inline styles
 - **a:** IDs
 - **b:** classes, attributes & psuedo-classes
 - **c:** elements & pseudo-elements
 
-If multiple selectors are given, an array of individual specificities is
-returned. E.g., `[ [0,0,0,1], [0,0,1,3] ]`
+## how it works
+
+A a selector is split up into chunks and sorted into selector categories. The
+categories are tallied, and the result is specificity: `[i, a, b, c]`.
+
+```js
+specimen('#home #warning p.message');
+//=> [0, 2, 1, 1]
+```
 
 # style="!important"
 
-Specimen only computes selector specificity; it cannot compute the specificity
-of inline styles or account for the use of `!important`.
+Specimen calculates selector specificity only; it cannot know the specificity
+of inline styles. It also cannot account for the use of `!important`.
+
+# gigo
+
+Specimen will attempt to calculate the CSS selector specificty of _any string_.
+A result of `[0, 0, 0, 0]` means the string is probably not a CSS selector, or
+contains only the universal selector `"*"` which has no affect on specificity.
 
 # credits
 
