@@ -62,6 +62,8 @@ function specimen(selectors) {
   var isDefined;
   var results = [];
 
+  if (!selectors) { return; }
+
   if (typeof selectors === 'string') {
     selectors = selectors.split(',');
   } else if (!Array.isArray(selectors)) {
