@@ -59,6 +59,7 @@ exports = module.exports = specimen;
  * @returns {Array} specificity
  */
 function specimen(selectors) {
+  var isDefined;
   var results = [];
 
   if (typeof selectors === 'string') {
@@ -69,10 +70,16 @@ function specimen(selectors) {
   }
 
   selectors.forEach(function (selector) {
-    results.push(specificity(selector));
+    var s = specificity(selector);
+
+    isDefined = isDefined || !!s;
+
+    results.push(s);
   });
 
-  return (results.length > 1) ? results : results[0];
+  if (isDefined) {
+    return (results.length > 1) ? results : results[0];
+  }
 }
 
 

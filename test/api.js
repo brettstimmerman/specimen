@@ -33,9 +33,13 @@ describe('specimen(selectors)', function () {
       undefined,
       /bob/,
       new Date(),
-      new Error()
+      new Error(),
+      [NaN, false]
     ].forEach(function (type) {
       assert.strictEqual(specimen(type), undefined);
     });
+
+    var result = specimen(['.foo', NaN, '.bar']);
+    assert.deepEqual(result, [[0,0,1,0], undefined, [0,0,1,0]]);
   });
 });
