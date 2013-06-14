@@ -84,6 +84,8 @@ function specimen(selectors) {
  */
 function specificity(selector) {
 
+  if (typeof selector !== 'string') { return; }
+
   /**
    * Returns the number of times `selector` from the parent scope matches the
    * given regular expression.
