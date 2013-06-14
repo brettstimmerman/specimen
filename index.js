@@ -61,7 +61,7 @@ exports = module.exports = specimen;
 function specimen(selectors) {
   var results = [];
 
-  if (typeof selectors === "string") {
+  if (typeof selectors === 'string') {
     selectors = selectors.split(',');
   } else if (!Array.isArray(selectors)) {
     // An invalid type was given.
